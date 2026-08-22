@@ -29,11 +29,18 @@
 .pokemon{
     margin: .5rem;
     padding: 1rem;
-    background-color: #49d0b0;
     color: white;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+}
+
+#grass {
+    background-color: #49d0b0;
+}
+
+#fire {
+    background-color: #660000;
 }
 
 .pokemon .name {
