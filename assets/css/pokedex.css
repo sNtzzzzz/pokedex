@@ -40,7 +40,11 @@
 }
 
 #fire {
-    background-color: #660000;
+    background-color: #f42a28;
+}
+
+#fairy {
+    background-color: pink;
 }
 
 .pokemon .name {
