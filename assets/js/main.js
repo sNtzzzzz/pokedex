@@ -27,6 +27,12 @@ function loadPokemonItens(offset, limit) {
 
 loadPokemonItens(offset, limit)
 
+pokemonList.addEventListener('click', (event) => {
+    if (event.target.closest('.pokemon')) {
+        alert('Ainda nao cheguei nessa parte carai, calmaa')
+    }
+})
+
 loadMoreButton.addEventListener('click', () => {
     offset += limit
     const qtdRecordsWithNextPage = offset + limit

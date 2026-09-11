@@ -9,6 +9,7 @@
 }
 
 .pokemon{
+    cursor: pointer;
     margin: .5rem;
     padding: 1rem;
     color: white;
