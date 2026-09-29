@@ -10,7 +10,20 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     
     pokemon.types = types
     pokemon.type = type
-    pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
+    pokemon.photo = pokeDetail.sprites.other['official-artwork']?.front_default
+        || pokeDetail.sprites.other.dream_world.front_default
+        || pokeDetail.sprites.front_default
+    pokemon.height = pokeDetail.height / 10
+    pokemon.weight = pokeDetail.weight / 10
+    pokemon.baseExperience = pokeDetail.base_experience
+    pokemon.abilities = pokeDetail.abilities.map(({ ability, is_hidden }) => ({
+        name: ability.name,
+        hidden: is_hidden
+    }))
+    pokemon.stats = pokeDetail.stats.map(({ stat, base_stat }) => ({
+        name: stat.name,
+        value: base_stat
+    }))
 
     return pokemon
 
