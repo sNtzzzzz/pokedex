@@ -9,13 +9,174 @@
 }
 
 .pokemon{
+    border: 1px solid #000;
     cursor: pointer;
+    transition: transform 180ms ease;
     margin: .5rem;
     padding: 1rem;
     color: white;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+}
+
+.pokemon:hover,
+.pokemon:focus-visible {
+    transform: scale(1.005);
+}
+
+.pokemon:focus-visible,
+.modal-close:focus-visible {
+    outline: 3px solid #25366b;
+    outline-offset: 3px;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.pokemon-modal {
+    width: min(820px, calc(100% - 2rem));
+    max-height: calc(100dvh - 2rem);
+    padding: 0;
+    border: 0;
+    border-radius: 1.5rem;
+    color: #263047;
+    box-shadow: 0 24px 80px #0004;
+}
+
+.pokemon-modal::backdrop {
+    background: #101827aa;
+}
+
+.modal-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+}
+
+.modal-close {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    color: #263047;
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+
+.modal-info {
+    padding: 2rem;
+    min-width: 0;
+}
+
+.modal-number {
+    color: #667085;
+    font-size: .875rem;
+}
+
+.modal-info h2 {
+    text-transform: capitalize;
+    margin: .5rem 0 1rem;
+    font-size: 2rem;
+    overflow-wrap: anywhere;
+}
+
+.modal-info h3 {
+    margin: 1.5rem 0 .75rem;
+    font-size: 1rem;
+}
+
+.modal-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.modal-types li {
+    padding: .35rem .75rem;
+    border-radius: 1rem;
+    color: #161b25;
+    text-transform: capitalize;
+}
+
+.modal-facts div,
+.modal-stats div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .5rem 0;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.modal-info dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+}
+
+.modal-stats dd {
+    display: grid;
+    grid-template-columns: auto 1rem;
+    align-items: center;
+    gap: .5rem;
+}
+
+.stat-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: #000;
+}
+
+.modal-abilities {
+    padding-left: 1.2rem;
+    line-height: 1.7;
+    text-transform: capitalize;
+}
+
+.modal-artwork {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem 1.5rem;
+}
+
+.modal-artwork img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 10px #0003);
+}
+
+@media screen and (max-width: 575px) {
+    .modal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-artwork {
+        grid-row: 1;
+        padding: 2rem;
+    }
+
+    .modal-artwork img {
+        max-width: 180px;
+    }
+
+    .modal-info {
+        padding: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pokemon {
+        transition: none;
+    }
 }
 
 .grass {
